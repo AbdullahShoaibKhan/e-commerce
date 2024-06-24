@@ -1,12 +1,17 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Open_Sans } from "next/font/google";
 import "./globals.css";
+import BottomNavbar from "@/components/navbar/bottomNavbar";
+import MiddleNavbar from "@/components/navbar/middleNavbar";
+import Footer from "@/components/footer/footer";
 
-const inter = Inter({ subsets: ["latin"] });
-
+const open_sans = Open_Sans({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "700"],
+});
 export const metadata: Metadata = {
-  title: "Lama Dev E-Commerce Application",
-  description: "A complete e-commerce application with Next.js and Wix",
+  title: "E-Commerce Application",
+  description: "A complete e-commerce application with Next.js",
 };
 
 export default function RootLayout({
@@ -16,7 +21,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={open_sans.className}>
+        <MiddleNavbar/>
+        <BottomNavbar/>
+
+        <main>{children}</main>
+        <Footer/>
+        </body>
     </html>
   );
 }
