@@ -39,7 +39,7 @@ const CategoriesMenu = () => {
   return (
     <div className="flex flex-col relative border rounded-md mb-3 shadow-md p-3">
       {categoriesData.map((category, index) => (
-        <Link href={`/category`}>
+        <Link key={index}  href={`/category`}>
         <div 
           key={index} 
           className="flex justify-between items-center p-2 hover:bg-gray-100 cursor-pointer"
