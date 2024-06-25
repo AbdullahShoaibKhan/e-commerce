@@ -241,7 +241,7 @@ const Product = () => {
             <p className="text-xs font-semibold">
               1.7 1 4.1 Ghz, 13-1115G4, 6MB Cache, 2 Cores, 4 Threads
             </p>
-            <p className="text-xs font-semibold">15.6"</p>
+            <p className="text-xs font-semibold">15.6&quot;</p>
             <p className="text-xs font-semibold">1920 x 1080:Full HD</p>
           </div>
         </div>
