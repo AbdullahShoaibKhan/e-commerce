@@ -329,11 +329,11 @@ const Product = () => {
                 <div className="relative mb-4 bg-white p-4 space-y-3">
                   <label className="text-sm font-semibold">Rating</label>
                   <div className="flex flex-row items-center py-1 space-x-1">
-                    <Star className="h-3 w-3" />
-                    <Star className="h-3 w-3 " />
-                    <Star className="h-3 w-3 " />
-                    <Star className="h-3 w-3" />
-                    <Star className="h-3 w-3" />
+                    <Star className="h-4 w-4" />
+                    <Star className="h-4 w-4" />
+                    <Star className="h-4 w-4" />
+                    <Star className="h-4 w-4" />
+                    <Star className="h-4 w-4" />
                   </div>
                 </div>
                 <div className="rounded-full bg-[#FF4747] p-3 full">
