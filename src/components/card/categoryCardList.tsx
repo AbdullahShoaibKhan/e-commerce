@@ -1,12 +1,6 @@
 import BigCard from "./bigCard";
-import Card from "./card1";
-import Card2 from "./card2";
-import CategoryCard from "./categoryCard";
 import FeaturedFilters from "../filters/featuredFilters";
-import LatestDealFilters from "../filters/latestDealFilters";
-import RandomFilters from "../filters/randomFilters";
-import SmallCard from "./smallCard";
-import OfferBanner from "../menu/offersBanner";
+
 
 const CategoryCardList = ({products}:any) => {
   function separateProductsData(products:any) {
@@ -33,18 +27,11 @@ const CategoryCardList = ({products}:any) => {
   return (
     <>
       <div className="bg-white p-4 ">
-        <RandomFilters />
+      <FeaturedFilters data={electronics} />
         <div className="container grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-2">
-          <BigCard />
-          <BigCard />
-          <BigCard />
-          <BigCard />
-          <BigCard />
-          <BigCard />
-          <BigCard />
-          <BigCard />
-          <BigCard />
-          <BigCard />
+        {electronics?.data.map((product: any, index: any) => (
+            <BigCard key={index} product={product} />
+          ))}
         </div>
       </div>
 

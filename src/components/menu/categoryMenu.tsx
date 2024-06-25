@@ -1,7 +1,7 @@
 'use client'
 import { useState } from 'react';
 import { ChevronRightIcon } from '@heroicons/react/24/solid';
-
+import Link from "next/link";
 const categoriesData = [
   {
     name: 'Electronics',
@@ -37,8 +37,9 @@ const CategoriesMenu = () => {
   const [hoveredCategory, setHoveredCategory] = useState("");
 
   return (
-    <div className="flex flex-col relative border rounded-md mb-3 shadow-md">
+    <div className="flex flex-col relative border rounded-md mb-3 shadow-md p-3">
       {categoriesData.map((category, index) => (
+        <Link href={`/category`}>
         <div 
           key={index} 
           className="flex justify-between items-center p-2 hover:bg-gray-100 cursor-pointer"
@@ -64,6 +65,7 @@ const CategoriesMenu = () => {
             </div>
           )}
         </div>
+        </Link>
       ))}
     </div>
   );

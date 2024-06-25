@@ -31,79 +31,75 @@ const HomeCardList = ({ products }: any) => {
   const new_fall_collection = separatedProducts["new_fall_collection"];
   const health_and_beauty = separatedProducts["health_and_beauty"];
   const electronics = separatedProducts["electronics"];
+  const hot_categories = separatedProducts["hot_categories"];
 
+  console.log(
+    sport,
+    latest_deals,
+    featured_items,
+    new_fall_collection,
+    health_and_beauty,
+    electronics
+  );
   return (
     <>
       <div className="bg-[#F3F4F4] p-4 my-2 rounded-md">
         <LatestDealFilters />
         <div className="grid grid-col-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4">
-          <Card />
-          <Card />
-          <Card />
-          <Card />
+          {latest_deals?.data.map((product: any, index: any) => (
+            <Card key={index} product={product} />
+          ))}
         </div>
       </div>
       <div className="bg-white border rounded-md border-[#F3F4F4] p-4 my-2 shadow-lg">
-        <FeaturedFilters />
+        <FeaturedFilters data={featured_items} />
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4">
-          <Card />
-          <Card />
-          <Card />
-          <Card />
+          {featured_items?.data.map((product: any, index: any) => (
+            <Card key={index} product={product} />
+          ))}
         </div>
       </div>
       <div className="bg-white border rounded-md border-[#F3F4F4] p-4 my-2 shadow-lg">
-        <RandomFilters />
+        <FeaturedFilters data={new_fall_collection} />
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-          <SmallCard />
-          <SmallCard />
-          <SmallCard />
-          <SmallCard />
-          <SmallCard />
-          <SmallCard />
-          <SmallCard />
-          <SmallCard />
+          {new_fall_collection?.data.map((product: any, index: any) => (
+            <SmallCard key={index} product={product} />
+          ))}
         </div>
       </div>
       <div className="bg-white border rounded-md border-[#F3F4F4] p-4 my-2 shadow-lg">
-        <RandomFilters />
+        <FeaturedFilters data={health_and_beauty} />
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          <BigCard />
-          <BigCard />
-          <BigCard />
+          {health_and_beauty?.data.map((product: any, index: any) => (
+            <BigCard key={index} product={product} />
+          ))}
         </div>
       </div>
       <div className="bg-white border rounded-md border-[#F3F4F4] p-4 my-2 shadow-lg">
-        <RandomFilters />
+        <FeaturedFilters data={electronics} />
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4">
-          <Card2 />
-          <Card2 />
-          <Card2 />
-          <Card2 />
+          {electronics?.data.map((product: any, index: any) => (
+            <Card2 key={index} product={product} />
+          ))}
         </div>
       </div>
       <div className="bg-white border rounded-md border-[#F3F4F4] p-4 my-2 shadow-lg">
-        <RandomFilters />
+        <FeaturedFilters data={sport} />
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          <BigCard />
-          <BigCard />
-          <BigCard />
+          {sport?.data.map((product: any, index: any) => (
+            <BigCard key={index} product={product} />
+          ))}
         </div>
       </div>
       <div className="bg-white border rounded-md border-[#F3F4F4] p-4 my-2 shadow-lg">
         <OfferBanner />
       </div>
       <div className="bg-white border rounded-md border-[#F3F4F4] p-4 my-2 shadow-lg">
-        <RandomFilters />
+        <FeaturedFilters data={hot_categories} />
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-          <CategoryCard />
-          <CategoryCard />
-          <CategoryCard />
-          <CategoryCard />
-          <CategoryCard />
-          <CategoryCard />
-          <CategoryCard />
-          <CategoryCard />
+          {hot_categories?.data.map((product: any, index: any) => (
+            <CategoryCard key={index} product={product} />
+          ))}
         </div>
       </div>
     </>
