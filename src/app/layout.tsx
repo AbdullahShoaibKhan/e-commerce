@@ -25,7 +25,7 @@ export default function RootLayout({
         <MiddleNavbar/>
         <BottomNavbar/>
 
-        <main>{children}</main>
+        <main className="mx-10">{children}</main>
         <Footer/>
         </body>
     </html>

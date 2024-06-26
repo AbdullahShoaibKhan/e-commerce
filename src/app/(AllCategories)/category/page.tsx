@@ -344,7 +344,7 @@ const AllCategories = () => {
     },
   ];
   return (
-    <div className="grid grid-cols-4 gap-4 mx-10">
+    <div className="grid grid-cols-4 gap-4">
       <div className="col-span-1">
         <CategoriesMenu />
         <CategoryFilters />

@@ -11,7 +11,7 @@ import { StarIcon as Star } from "@heroicons/react/24/outline";
 const Product = () => {
   return (
     <>
-      <section className="mx-10">
+      <section >
         <div className="grid grid-cols-1 md:grid-cols-7 gap-3  pb-2 mx-auto">
           <div className="md:col-span-3 col-span-3 space-y-2 relative  p-3">
             <div className="border rounded-md h-[350px] p-3">

@@ -97,7 +97,7 @@ const CategoryFilters = () => {
                     htmlFor={`rating-${rating}`}
                     className={`ml-2 flex items-center ${
                       checkedItems[`ratings-${rating}`]
-                        ? "text-[#ffa947]"
+                        ? "text-[#FF4747]"
                         : ""
                     }`}
                   >

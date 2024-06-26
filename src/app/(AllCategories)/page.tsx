@@ -300,7 +300,7 @@ const AllCategories = () => {
   ];
   
   return (
-    <div className="mx-10">
+    <div>
       <div className="flex flex-row space-x-2">
         <div className="w-1/4">
           <CategoriesMenu />
