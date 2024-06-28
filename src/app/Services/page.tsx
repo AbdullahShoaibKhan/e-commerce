@@ -1,5 +1,7 @@
+import Account from "./account/page";
+
 const Services = () => {
-    return <div className="">Services</div>;
+    return <div className=""><Account/></div>;
   };
   
   export default Services;
