@@ -1,8 +1,8 @@
 
 const LatestDealFilters = () => {
   return (
-      <div className="flex flex-row justify-between py-2 flex-1">
-        <p className="text-3xl font-extrabold">
+      <div className="flex flex-row flex-wrap lg:justify-between md:justify-center py-2 flex-1">
+        <p className="text-4xl font-extrabold">
           LATEST <span className="text-[#FF4747]">DEALS</span>
         </p>
         <div className="flex flex-row space-x-1 items-center">

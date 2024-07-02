@@ -301,11 +301,11 @@ const AllCategories = () => {
   
   return (
     <div>
-      <div className="flex flex-row space-x-2">
-        <div className="w-1/4">
+      <div className="flex flex-col xl:flex-row lg:flex-row gap-x-2">
+        <div className="xl:w-1/4 lg:w-1/4 w-full">
           <CategoriesMenu />
         </div>
-        <div className="w-3/4">
+        <div className="xl:w-3/4 lg:w-3/4 w-full">
           <CategoryImages />
         </div>
       </div>
