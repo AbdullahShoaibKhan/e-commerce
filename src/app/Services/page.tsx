@@ -1,3 +1,4 @@
+'use client'
 import Account from "./account/page";
 
 const Services = () => {

@@ -60,7 +60,7 @@
 'use client'
 import { useState } from "react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/solid"; // Import Menu and Close icons from Heroicons
-import App from "./orders/page";
+import Tabel from "./orders/page";
 
 const Account = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -160,7 +160,7 @@ const Account = () => {
                 <p className="text-lg font-extrabold text-[#FF4747]">50</p>
               </div>
             </div>
-            <div className="flex justify"><App/></div>
+            <div className="flex justify"><Tabel/></div>
           </div>
         </div>
       </div>

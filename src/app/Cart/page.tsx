@@ -1,3 +1,4 @@
+'use client'
 import Card from "@/components/card/card1";
 import HomeCardList from "@/components/card/homeCardList";
 import CategoryImages from "@/components/menu/categoryImages";

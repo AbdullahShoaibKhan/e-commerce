@@ -280,7 +280,7 @@
 //   );
 // }
 
-
+'use client'
 import * as React from "react";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
@@ -386,7 +386,7 @@ function QuickSearchToolbar() {
   );
 }
 
-export default function FullFeaturedCrudGrid() {
+export default function Table() {
   const [rows, setRows] = React.useState(initialRows);
   const [rowModesModel, setRowModesModel] = React.useState<GridRowModesModel>(
     {}
