@@ -105,7 +105,7 @@ const CategoriesMenu = () => {
             </div>
             <nav className="mt-6">
               {categoriesData.map((category, index) => (
-                <a href="/category">
+                <a href="/category" key={index}>
                 <div key={index} className="flex flex-col">
                   <div
                     className="flex justify-between items-center p-2 hover:bg-gray-100 cursor-pointer"
@@ -148,7 +148,7 @@ const CategoriesMenu = () => {
 
       <div className="hidden lg:flex flex-col relative border rounded-md shadow-md px-5 py-4 gap-x-2">
         {categoriesData.map((category, index) => (
-          <a href="/category">
+          <a href="/category" key={index}>
           <div
             key={index}
             className="flex justify-between items-center p-2 hover:bg-gray-100 cursor-pointer"
