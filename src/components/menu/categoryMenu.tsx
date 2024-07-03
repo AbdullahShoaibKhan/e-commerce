@@ -105,6 +105,7 @@ const CategoriesMenu = () => {
             </div>
             <nav className="mt-6">
               {categoriesData.map((category, index) => (
+                <a href="/category">
                 <div key={index} className="flex flex-col">
                   <div
                     className="flex justify-between items-center p-2 hover:bg-gray-100 cursor-pointer"
@@ -138,6 +139,7 @@ const CategoriesMenu = () => {
                     </div>
                   )}
                 </div>
+                </a>
               ))}
             </nav>
           </div>
@@ -146,6 +148,7 @@ const CategoriesMenu = () => {
 
       <div className="hidden lg:flex flex-col relative border rounded-md shadow-md px-5 py-4 gap-x-2">
         {categoriesData.map((category, index) => (
+          <a href="/category">
           <div
             key={index}
             className="flex justify-between items-center p-2 hover:bg-gray-100 cursor-pointer"
@@ -163,7 +166,7 @@ const CategoriesMenu = () => {
             )}
             {hoveredCategory === category.name && (
               <div
-                className="absolute left-full top-0 mt-2 ml-2 p-4 w-full bg-white shadow-lg border rounded-md"
+                className="absolute left-full top-0 mt-2 ml-2 p-4 w-full bg-white shadow-lg border rounded-md z-20"
                 onMouseEnter={() => setHoveredCategory(category?.name)}
                 onMouseLeave={() => setHoveredCategory("")}
               >
@@ -178,6 +181,7 @@ const CategoriesMenu = () => {
               </div>
             )}
           </div>
+          </a>
         ))}
       </div>
     </div>

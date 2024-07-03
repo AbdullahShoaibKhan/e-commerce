@@ -1,5 +1,5 @@
 import BigCard from "./bigCard";
-import FeaturedFilters from "../filters/featuredFilters";
+import RandomFilters from "../filters/randomFilters";
 
 
 const CategoryCardList = ({products}:any) => {
@@ -27,7 +27,7 @@ const CategoryCardList = ({products}:any) => {
   return (
     <>
       <div className="bg-white p-4 ">
-      <FeaturedFilters data={electronics} />
+      <RandomFilters data={electronics} />
         <div className="container grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-2">
         {electronics?.data.map((product: any, index: any) => (
             <BigCard key={index} product={product} />

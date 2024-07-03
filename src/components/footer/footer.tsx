@@ -396,7 +396,7 @@ const Footer = () => {
   return (
     <footer className="text-gray-600 body-font bg-[#F3F4F4]">
       <div className="xl:mx-10 lg:mx-10 md:mx-7 mx-2 py-8">
-        <div className="grid grid-cols-1 md:grid-cols-9 gap-4">
+        <div className="grid grid-cols-2 md:grid-cols-10 gap-4">
           <div className="text-center px-10 md:text-left col-span-3">
             <a className="flex title-font font-medium items-center justify-center md:justify-start text-gray-900">
               <div className="text-3xl font-extrabold">
@@ -411,13 +411,14 @@ const Footer = () => {
           <div className="md:col-span-5 flex flex-col md:flex-row">
             <div className="flex flex-col w-full md:w-1/4">
               <div
-                className="flex justify-between items-center md:items-start lg:hidden"
+                className="flex justify-between items-center md:items-start md:hidden"
                 onClick={() => setIsCompanyOpen(!isCompanyOpen)}
               >
                 <h2 className="font-medium text-[#FF4747] text-md mb-3">Company</h2>
                 <ChevronDownIcon className="h-5 w-5 md:hidden" />
               </div>
-              <nav className={`list-none mb-10 space-y-1 ${isCompanyOpen ? 'block' : 'hidden'} lg:block`}>
+              <nav className={`list-none mb-10 space-y-1 ${isCompanyOpen ? 'block' : 'hidden'} md:block`}>
+              <h2 className="font-medium text-[#FF4747] text-md mb-3">Company</h2>
                 <li>
                   <a className="text-gray-600 hover:text-gray-800 text-sm">Services</a>
                 </li>
@@ -435,13 +436,14 @@ const Footer = () => {
 
             <div className="flex flex-col w-full md:w-1/4">
               <div
-                className="flex justify-between items-center md:items-start lg:hidden"
+                className="flex justify-between items-center md:items-start md:hidden"
                 onClick={() => setIsInformationOpen(!isInformationOpen)}
               >
                 <h2 className="font-medium text-[#FF4747] text-md mb-3">Information</h2>
                 <ChevronDownIcon className="h-5 w-5 md:hidden" />
               </div>
-              <nav className={`list-none mb-10 space-y-1 ${isInformationOpen ? 'block' : 'hidden'} lg:block`}>
+              <nav className={`list-none mb-10 space-y-1 ${isInformationOpen ? 'block' : 'hidden'} md:block`}>
+              <h2 className="font-medium text-[#FF4747] text-md mb-3">Information</h2>
                 <li>
                   <a className="text-gray-600 hover:text-gray-800 text-sm">About Us</a>
                 </li>
@@ -459,13 +461,14 @@ const Footer = () => {
 
             <div className="flex flex-col w-full md:w-1/4">
               <div
-                className="flex justify-between items-center md:items-start lg:hidden"
+                className="flex justify-between items-center md:items-start md:hidden"
                 onClick={() => setIsAccountOpen(!isAccountOpen)}
               >
                 <h2 className="font-medium text-[#FF4747] text-md mb-3">My Account</h2>
                 <ChevronDownIcon className="h-5 w-5 md:hidden" />
               </div>
-              <nav className={`list-none mb-10 space-y-1 ${isAccountOpen ? 'block' : 'hidden'} lg:block`}>
+              <nav className={`list-none mb-10 space-y-1 ${isAccountOpen ? 'block' : 'hidden'} md:block`}>
+              <h2 className="font-medium text-[#FF4747] text-md mb-3">My Account</h2>
                 <li>
                   <a className="text-gray-600 hover:text-gray-800 text-sm">My Account</a>
                 </li>
@@ -483,13 +486,14 @@ const Footer = () => {
 
             <div className="flex flex-col w-full md:w-1/4">
               <div
-                className="flex justify-between items-center md:items-start lg:hidden"
+                className="flex justify-between items-center md:items-start md:hidden"
                 onClick={() => setIsCustomerServiceOpen(!isCustomerServiceOpen)}
               >
                 <h2 className="font-medium text-[#FF4747] text-md mb-3">Customer Service</h2>
                 <ChevronDownIcon className="h-5 w-5 md:hidden" />
               </div>
-              <nav className={`list-none mb-10 space-y-1 ${isCustomerServiceOpen ? 'block' : 'hidden'} lg:block`}>
+              <nav className={`list-none mb-10 space-y-1 ${isCustomerServiceOpen ? 'block' : 'hidden'} md:block`}>
+              <h2 className="font-medium text-[#FF4747] text-md mb-3">Customer Service</h2>
                 <li>
                   <a className="text-gray-600 hover:text-gray-800 text-sm">Help Center</a>
                 </li>
@@ -506,7 +510,7 @@ const Footer = () => {
             </div>
           </div>
 
-          <div className="flex flex-col col-span-1 md:col-span-1">
+          <div className="flex flex-col xl:col-span-2 lg:col-span-2 md:col-span-2">
             <h2 className="font-medium text-[#FF4747] text-md mb-3">Newsletter</h2>
             <div className="flex flex-col space-y-2 justify-center">
               <input
