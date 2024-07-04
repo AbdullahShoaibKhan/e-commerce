@@ -1,12 +1,45 @@
-'use client'
+"use client";
+import CustomSeparator from "@/components/breadcrums/breadcrums";
 import Card from "@/components/card/card1";
 import HomeCardList from "@/components/card/homeCardList";
 import CategoryImages from "@/components/menu/categoryImages";
 import CategoriesMenu from "@/components/menu/categoryMenu";
 import Offers from "@/components/menu/offers";
 import OfferBanner from "@/components/menu/offersBanner";
-
+import Breadcrumbs from "@mui/material/Breadcrumbs";
+import Typography from "@mui/material/Typography";
+import Link from "@mui/material/Link";
+import Stack from "@mui/material/Stack";
+import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 const AllCategories = () => {
+  function handleClick(event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) {
+    event.preventDefault();
+    console.info("You clicked a breadcrumb.");
+  }
+  const breadcrumbs = [
+    <Link
+      underline="hover"
+      key="1"
+      color="inherit"
+      href="/"
+      onClick={handleClick}
+    >
+      Home
+    </Link>,
+    <Link
+      underline="hover"
+      key="2"
+      color="inherit"
+      href="/material-ui/getting-started/installation/"
+      onClick={handleClick}
+    >
+      Core
+    </Link>,
+    <Typography key="3" color="text.primary">
+      Breadcrumb
+    </Typography>,
+  ];
+
   const categories = [
     {
       name: "latest deals",
@@ -255,7 +288,7 @@ const AllCategories = () => {
           starsCount: 5,
           rating: 4.6,
           price: 32.0,
-        }
+        },
       ],
     },
     {
@@ -269,7 +302,6 @@ const AllCategories = () => {
         {
           image: "/electronics.jpg",
           productTitle: "Electronics",
-
         },
         {
           image: "/light.jpg",
@@ -294,14 +326,19 @@ const AllCategories = () => {
         {
           image: "/sport.jpg",
           productTitle: "Sports & Outdoors",
-        }
-
+        },
       ],
     },
   ];
-  
+
   return (
     <div>
+      <Breadcrumbs
+        separator={<NavigateNextIcon fontSize="small" />}
+        aria-label="breadcrumb"
+      >
+        {breadcrumbs}
+      </Breadcrumbs>
       <div className="flex flex-col xl:flex-row lg:flex-row gap-x-2">
         <div className="xl:w-1/4 lg:w-1/4 w-full">
           <CategoriesMenu />

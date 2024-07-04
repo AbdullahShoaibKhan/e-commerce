@@ -11,6 +11,8 @@ import {
 } from "@heroicons/react/24/outline";
 import Link from "next/link";
 import { Transition } from "@headlessui/react";
+import { useSession } from "next-auth/react";
+import { signOut } from "next-auth/react";
 
 const navigation = {
   pages: [
@@ -20,8 +22,16 @@ const navigation = {
     { name: "Blog", href: "/Blog" },
     { name: "About Us", href: "/AboutUs" },
     { name: "Contact Us", href: "/ContactUs" },
+  ],
+  overlayPages: [
+    { name: "All Categories", href: "/" },
+    { name: "Services", href: "/Services" },
+    { name: "Support", href: "/Support" },
+    { name: "Blog", href: "/Blog" },
+    { name: "About Us", href: "/AboutUs" },
+    { name: "Contact Us", href: "/ContactUs" },
     { name: "Cart", href: "/Cart" },
-    { name: "Sign In", href: "/Auth/login" },   
+    { name: "Sign In", href: "/Auth/login" },
   ],
   extra: [
     { name: "Weekly Deals", href: "/weekly-deals" },
@@ -37,7 +47,12 @@ function classNames(...classes: any) {
 export default function CombinedNavbar() {
   const [open, setOpen] = useState(false);
   const [activeTab, setActiveTab] = useState("/");
+  const { data: Session } = useSession();
+  console.log(Session);
 
+  const handleLogout = () => {
+    signOut({ callbackUrl: "/" });
+  };
   return (
     <div>
       {/* Mobile overlay */}
@@ -68,7 +83,7 @@ export default function CombinedNavbar() {
               <MagnifyingGlassIcon className="absolute right-2 top-2 h-5 w-5 text-gray-400" />
             </div>
             <nav className="mt-6">
-              {navigation.pages.map((page) => (
+              {navigation.overlayPages.map((page) => (
                 <Link key={page.name} href={page.href}>
                   <div
                     className={classNames(
@@ -157,27 +172,58 @@ export default function CombinedNavbar() {
                 <MagnifyingGlassIcon className="absolute right-2 top-2 h-5 w-5 text-gray-400" />
               </div>
             </div>
-            <div className="xl:text-md lg:text-md md:text-sm sm:text-md font-bold" style={{ lineHeight: "40px" }}>
+            <div
+              className="xl:text-md lg:text-md md:text-sm sm:text-md font-bold"
+              style={{ lineHeight: "40px" }}
+            >
               Weekly Deals
             </div>
-            <div className="xl:text-md lg:text-md md:text-sm sm:text-md font-bold" style={{ lineHeight: "40px" }}>
+            <div
+              className="xl:text-md lg:text-md md:text-sm sm:text-md font-bold"
+              style={{ lineHeight: "40px" }}
+            >
               Special Offers
             </div>
-            <div className="xl:text-md lg:text-md md:text-sm sm:text-md font-bold" style={{ lineHeight: "40px" }}>
+            <div
+              className="xl:text-md lg:text-md md:text-sm sm:text-md font-bold"
+              style={{ lineHeight: "40px" }}
+            >
               New Arrivals
             </div>
             <div className="text-sm text-white font-bold rounded-full bg-[#FF4747]">
-              <a href="/Auth/login">
-              <div className="flex flex-row space-x-1 items-center px-2 py-1">
-                <UserIcon
-                  className="h-6 w-6 flex-shrink-0 text-white group-hover:text-gray-500"
-                  aria-hidden="true"
-                />
-                <p className="text-md font-bold" style={{ lineHeight: "40px" }}>
-                  Sign In / Register
-                </p>
-              </div>
-              </a>
+              {Session ? (
+                <div
+                onClick={handleLogout}
+                  className="flex flex-row space-x-1 items-center px-3 py-1"
+                >
+                  <UserIcon
+                    className="h-6 w-6 flex-shrink-0 text-white group-hover:text-gray-500"
+                    aria-hidden="true"
+                  />
+                  <p
+                    className="text-md font-bold"
+                    style={{ lineHeight: "40px" }}
+                  >
+                    Logout
+                  </p>
+                </div>
+              ) : (
+                <a
+                  href="/Auth/sign-in"
+                  className="flex flex-row space-x-1 items-center px-2 py-1"
+                >
+                  <UserIcon
+                    className="h-6 w-6 flex-shrink-0 text-white group-hover:text-gray-500"
+                    aria-hidden="true"
+                  />
+                  <p
+                    className="text-md font-bold"
+                    style={{ lineHeight: "40px" }}
+                  >
+                    Sign In / Register
+                  </p>
+                </a>
+              )}
             </div>
           </div>
         </header>

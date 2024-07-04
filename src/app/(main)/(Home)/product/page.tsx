@@ -1,3 +1,4 @@
+'use client'
 import {
   StarIcon,
   PlusIcon,
@@ -6,9 +7,23 @@ import {
   ShieldExclamationIcon,
   CheckBadgeIcon,
 } from "@heroicons/react/24/solid";
-
+import LinearProgress, { linearProgressClasses } from '@mui/material/LinearProgress';
+import { styled } from '@mui/material/styles';
 import { StarIcon as Star } from "@heroicons/react/24/outline";
 const Product = () => {
+
+  const BorderLinearProgress = styled(LinearProgress)(({ theme }) => ({
+    height: 10,
+    borderRadius: 5,
+    [`&.${linearProgressClasses.colorPrimary}`]: {
+      backgroundColor: theme.palette.grey[theme.palette.mode === 'light' ? 200 : 800],
+    },
+    [`& .${linearProgressClasses.bar}`]: {
+      borderRadius: 5,
+      backgroundColor: theme.palette.mode === 'light' ? '#FF4747' : '#FF4747',
+    },
+  }));
+
   return (
     <>
       <section>
@@ -268,43 +283,55 @@ const Product = () => {
                   <span className="text-sm font-semibold"> (129 Reviews) </span>
                 </p>
               </div>
-              <div className="grid grid-cols-3 my-1 md:w-full sm:w-full xs:w-full">
-                <div className="col-span-1">
+              <div className="grid grid-cols-6 my-1 md:w-full sm:w-full xs:w-full">
+                <div className="col-span-2">
                   <p className="text-sm font-bold">Battery Life</p>
                 </div>
-                <div className="col-span-2 ">
+                <div className="col-span-3 place-content-center">
+                <BorderLinearProgress variant="determinate" value={88} />
+                </div>
+                <div className="col-span-1 ">
                   <p className="text-sm font-bold text-[#FF4747] text-end">
                     88%
                   </p>
                 </div>
               </div>
-              <div className="grid grid-cols-3 my-1">
-                <div className="col-span-1">
+              <div className="grid grid-cols-6 my-1">
+                <div className="col-span-2">
                   <p className="text-sm font-bold">Battery Life</p>
                 </div>
-                <div className="col-span-2">
+                <div className="col-span-3 place-content-center">
+                <BorderLinearProgress variant="determinate" value={88} />
+                </div>
+                <div className="col-span-1">
                   <p className="text-sm font-bold text-[#FF4747] text-end">
                     88%
                   </p>
                 </div>
               </div>
-              <div className="grid grid-cols-3 my-1">
-                <div className="col-span-1">
+              <div className="grid grid-cols-6 my-1">
+                <div className="col-span-2">
                   <p className="text-sm font-bold">Battery Life</p>
                 </div>
-                <div className="col-span-2">
+                <div className="col-span-3 place-content-center">
+                <BorderLinearProgress variant="determinate" value={88} />
+                </div>
+                <div className="col-span-1">
                   <p className="text-sm font-bold text-[#FF4747] text-end">
                     88%
                   </p>
                 </div>
               </div>
-              <div className="grid grid-cols-3 my-1">
-                <div className="col-span-1">
+              <div className="grid grid-cols-6 my-1">
+                <div className="col-span-2">
                   <p className="text-sm font-bold">Battery Life</p>
                 </div>
-                <div className="col-span-2">
+                <div className="col-span-3 place-content-center">
+                <BorderLinearProgress variant="determinate" value={76} />
+                </div>
+                <div className="col-span-1">
                   <p className="text-sm font-bold text-[#FF4747] text-end">
-                    88%
+                    76%
                   </p>
                 </div>
               </div>

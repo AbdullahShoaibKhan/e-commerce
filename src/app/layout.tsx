@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import { Open_Sans } from "next/font/google";
 import "./globals.css";
-import MiddleNavbar from "@/components/navbar/middleNavbar";
-import Footer from "@/components/footer/footer";
+
+import AuthSession from "@/providers/next-auth";
+import { getServerAuthSession } from "@/lib/auth";
 
 const open_sans = Open_Sans({
   subsets: ["latin"],
@@ -13,20 +14,17 @@ export const metadata: Metadata = {
   description: "A complete e-commerce application with Next.js",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const session = await getServerAuthSession();
+  console.log(session)
   return (
     <html lang="en">
       <body className={open_sans.className}>
-        <MiddleNavbar />
-
-        <main className="xl:mx-10 lg:mx-10 md:mx-5 sm:mx-5 mx-3">
-          {children}
-        </main>
-        <Footer />
+        <AuthSession session={session}>{children}</AuthSession>
       </body>
     </html>
   );

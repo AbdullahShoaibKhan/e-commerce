@@ -386,7 +386,7 @@ function QuickSearchToolbar() {
   );
 }
 
-export default function Table() {
+const Table = () =>{
   const [rows, setRows] = React.useState(initialRows);
   const [rowModesModel, setRowModesModel] = React.useState<GridRowModesModel>(
     {}
@@ -565,3 +565,5 @@ export default function Table() {
     </Box>
   );
 }
+
+export default Table;
