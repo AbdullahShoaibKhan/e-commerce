@@ -1,8 +1,11 @@
 import CategoryCardList from "@/components/card/categoryCardList";
 import CategoryFilters from "@/components/menu/categoryFilters";
 import CategoriesMenu from "@/components/menu/categoryMenu";
+import { useEffect, useState } from "react";
 
-const AllCategories = () => {
+const AllCategories = (props:any) => {
+  console.log(props)
+  const [data,setData]=useState([]);
   const productsData = [
     {
       name: "latest deals",
@@ -343,6 +346,19 @@ const AllCategories = () => {
       ],
     },
   ];
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const data = await getProductsByCategory();
+        setData(data);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+
+    fetchData();
+  }, []);
   return (
     <div className="grid xl:grid-cols-4 lg:grid-cols-4 md:grid-cols-4 grid-cols-1 gap-4">
       <div className="col-span-1">

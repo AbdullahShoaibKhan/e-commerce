@@ -8,6 +8,7 @@ import {
 } from "@heroicons/react/24/solid";
 import Link from "next/link";
 import { Transition } from "@headlessui/react";
+import { useRouter } from "next/navigation";
 
 const categoriesData = [
   {
@@ -56,10 +57,12 @@ const categoriesData = [
   },
 ];
 
-const CategoriesMenu = () => {
+const CategoriesMenu = ({categories}:any) => {
+  console.log(categories)
   const [hoveredCategory, setHoveredCategory] = useState("");
   const [open, setOpen] = useState(false);
   const [openSubcategories, setOpenSubcategories] = useState<string[]>([]);
+  const router = useRouter();
 
   const toggleSubcategories = (categoryName: string) => {
     if (openSubcategories.includes(categoryName)) {
@@ -69,6 +72,11 @@ const CategoriesMenu = () => {
     } else {
       setOpenSubcategories([...openSubcategories, categoryName]);
     }
+  };
+
+  const handleCategoryClick =  (categoryId: number) => {
+    console.log(categoryId)
+      router.push(`/category?id=${categoryId}`);
   };
 
   return (
@@ -104,9 +112,9 @@ const CategoriesMenu = () => {
               </button>
             </div>
             <nav className="mt-6">
-              {categoriesData.map((category, index) => (
-                <a href="/category" key={index}>
-                <div key={index} className="flex flex-col">
+              {categories?.map((category:any, index:any) => (
+                // <a href="/category?id=category.id" key={index}>
+                <div key={index} className="flex flex-col" onClick={() => handleCategoryClick(category.id)}>
                   <div
                     className="flex justify-between items-center p-2 hover:bg-gray-100 cursor-pointer"
                     onClick={() => toggleSubcategories(category.name)}
@@ -117,7 +125,7 @@ const CategoriesMenu = () => {
                     >
                       {category.name}
                     </span>
-                    {category.subcategories.length > 0 &&
+                    {category?.subcategories?.length > 0 &&
                       (openSubcategories.includes(category.name) ? (
                         <ChevronDownIcon className="h-5 w-5 text-gray-500" />
                       ) : (
@@ -126,7 +134,7 @@ const CategoriesMenu = () => {
                   </div>
                   {openSubcategories.includes(category.name) && (
                     <div className="ml-4">
-                      {category.subcategories.map((subcategory, subIndex) => (
+                      {category?.subcategories?.map((subcategory:any, subIndex:any) => (
                         <Link key={subIndex} href={`/subcategory`}>
                           <div
                             key={subIndex}
@@ -139,7 +147,7 @@ const CategoriesMenu = () => {
                     </div>
                   )}
                 </div>
-                </a>
+                // </a>
               ))}
             </nav>
           </div>
@@ -161,16 +169,16 @@ const CategoriesMenu = () => {
             >
               {category.name}
             </span>
-            {category.subcategories.length > 0 && (
+            {category?.subcategories?.length > 0 && (
               <ChevronRightIcon className="h-5 w-5 text-gray-500" />
             )}
-            {hoveredCategory === category.name && (
+            {hoveredCategory === category?.name && (
               <div
                 className="absolute left-full top-0 mt-2 ml-2 p-4 w-full bg-white shadow-lg border rounded-md z-20"
                 onMouseEnter={() => setHoveredCategory(category?.name)}
                 onMouseLeave={() => setHoveredCategory("")}
               >
-                {category.subcategories.map((subcategory, subIndex) => (
+                {category?.subcategories?.map((subcategory, subIndex) => (
                   <div
                     key={subIndex}
                     className="p-2 hover:bg-gray-100 text-sm font-semibold"

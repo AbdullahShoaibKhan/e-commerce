@@ -1,6 +1,4 @@
 "use client";
-import { useState } from "react";
-import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/solid"; // Import Menu and Close icons from Heroicons
 
 const AdminMenu = () => {
 

@@ -10,6 +10,11 @@ import {
 import LinearProgress, { linearProgressClasses } from '@mui/material/LinearProgress';
 import { styled } from '@mui/material/styles';
 import { StarIcon as Star } from "@heroicons/react/24/outline";
+import Breadcrumbs from "@mui/material/Breadcrumbs";
+import Typography from "@mui/material/Typography";
+import Link from "@mui/material/Link";
+import NavigateNextIcon from "@mui/icons-material/NavigateNext";
+
 const Product = () => {
 
   const BorderLinearProgress = styled(LinearProgress)(({ theme }) => ({
@@ -24,12 +29,33 @@ const Product = () => {
     },
   }));
 
+  const breadcrumbs = [
+    <Link
+      underline="hover"
+      key="1"
+      color="#FF4747"
+      href="/"
+    >
+      Home
+    </Link>,
+    <Typography key="3" color="text.primary">
+      Product
+    </Typography>,
+  ];
+
   return (
     <>
       <section>
+      <Breadcrumbs
+        separator={<NavigateNextIcon fontSize="small" />}
+        aria-label="breadcrumb"
+        className="my-2"
+      >
+        {breadcrumbs}
+      </Breadcrumbs>
         <div className="grid grid-cols-1 md:grid-cols-7 xl:gap-3 lg:gap-3   pb-2 mx-auto">
           <div className="xl:col-span-3 lg:col-span-3 md:col-span-3 col-span-1 gap-y-2 relative  xl:p-3 lg:p-3">
-            <div className="border rounded-md h-[350px] p-3">
+            <div className="border rounded-md h-full p-3">
               <img
                 src="/Rectangle1.png"
                 alt="gallery"
